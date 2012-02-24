@@ -92,6 +92,19 @@ var sources = [
         }
     },
 
+    //RT ticket
+    {
+        identify: function() {
+            //make sure the details of a card are being shown
+            return (location.pathname.substring(0, 21) == "/Ticket/Display.html");
+        },
+
+        parse: function() {
+            var card_name =  document.getElementById('header').getElementsByTagName('h1')[0].textContent;
+            return { name: card_name, description: location.href };
+        }
+    }, 
+
     //trello card
     {
         identify: function() {
